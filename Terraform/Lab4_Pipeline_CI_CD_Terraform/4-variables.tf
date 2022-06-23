@@ -9,7 +9,7 @@ variable "azureRegion" {
 #  Resource Group Name
 variable "resourceGroupName" {
   type    = string
-  default = "fcr-RG-DemoGitHub"
+  default = "fcr-RG-VM"
 }
 
 
