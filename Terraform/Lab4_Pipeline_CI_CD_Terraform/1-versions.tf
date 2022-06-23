@@ -18,6 +18,7 @@ terraform {
     # pour les options d'authentification au backend Azure Storage cf. https://www.terraform.io/language/settings/backends/azurerm
     # sas_token = "sp=racwdli&st=2022-03-11T14:00:16Z&se=2022-03-11T22:26:16Z&spr=https&sv=2020-08-04&sr=c&sig=iiu05uUa%2Bh9tdqO%2F%2FwJEGZlkeJR5Ufgna1rshTaVv7s%3D"
     # sp=racwd&st=2022-06-23T14:35:40Z&se=2022-06-23T22:35:40Z&spr=https&sv=2021-06-08&sr=b&sig=Ue9nUGucqRn%2FNnfedcN0FWYz7gxv8Sk%2BxwPZfBpVevk%3D
+    # pat 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
         
   }
   

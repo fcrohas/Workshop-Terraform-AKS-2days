@@ -1,6 +1,10 @@
 resource "azurerm_resource_group" "terra_rg" {
   name     = var.resourceGroupName
   location = var.azureRegion
+    tags = {
+    environment = "fcrlab"
+    OwnerEmail  = "fabrice.crohas@itesoft.com"
+  }
 }
 
 resource "azurerm_virtual_network" "terra_vnet" {
@@ -8,6 +12,22 @@ resource "azurerm_virtual_network" "terra_vnet" {
   address_space       = ["10.0.0.0/16"]
   location            = azurerm_resource_group.terra_rg.location
   resource_group_name = azurerm_resource_group.terra_rg.name
+    tags = {
+    environment = "fcrlab"
+    OwnerEmail  = "fabrice.crohas@itesoft.com"
+  }
+}
+
+resource "azurerm_public_ip" "terra_publicip" {
+  name                = var.publicIp 
+  resource_group_name = azurerm_resource_group.terra_rg.name
+  location            = azurerm_resource_group.terra_rg.location
+  allocation_method   = "Static"
+
+  tags = {
+    environment = "fcrlab"
+    OwnerEmail  = "fabrice.crohas@itesoft.com"
+  }
 }
 
 resource "azurerm_subnet" "terra_subnet" {
@@ -26,6 +46,7 @@ resource "azurerm_network_interface" "terra_nic" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.terra_subnet.id
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id = azurerm_public_ip.terra_publicip.id 
   }
 }
 

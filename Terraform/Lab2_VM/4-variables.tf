@@ -1,7 +1,7 @@
 #  Resource Group Name
 variable "resourceGroupName" {
   type    = string
-  default = "RG-VM"
+  default = "fcr-RG-VM"
 }
 
 variable "azureRegion" {
@@ -9,28 +9,33 @@ variable "azureRegion" {
   # To get names of Azure Region : az account list-locations
   # To check support of Availability Zone in the Azure Region see https://docs.microsoft.com/bs-latn-ba/azure/availability-zones/az-overview
   type    = string
-  default = "westus"
+  default = "westeurope"
+}
+
+variable "publicIp" {
+    type = string
+    default = "fcr-PublicIP"  
 }
 
 variable "vnetName" {
     type = string
-    default = "Vnet-VM"  
+    default = "fcr-Vnet-VM"  
 }
 
 variable "subnetName" {
     type = string
-    default = "Subnet-VM"  
+    default = "fcr-Subnet-VM"  
 }
 
 variable "nicName" {
     type = string
-    default = "Nic-1"
+    default = "fcr-Nic-1"
   
 }
 
 variable "vmName" {
     type = string
-    default = "VM-Linux"  
+    default = "fcr-VM-Linux"  
 }
 
 # az vm list-skus -l westus
